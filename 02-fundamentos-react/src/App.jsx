@@ -1,3 +1,4 @@
+import img1 from './assets/imgs/1.webp'
 
 export const MyButton = () => {
     return (
@@ -17,12 +18,10 @@ export const OfflineText = () => {
     )
 }
 
-
 export const App = () => {
-
     const title = "Mi titulo desde una constante";
     const classTitle = "text-center";
-    const pathImg = "https://images.pexels.com/photos/10295057/pexels-photo-10295057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+    const pathImg = img1;
     const user = true;
 
     return (
