@@ -34,6 +34,7 @@ export const App = () => {
             <br />
             {
                 user ? <OnlineText /> : <OfflineText />
+                // user && <OfflineText />
             }
         </div>
     )
