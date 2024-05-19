@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async await
+        const obtenerPokemones = async() => {
+            try {
+                const res = await fetch('https://pokeapi.co/api/v2/pokemon/')
+                const data = await res.json()
+                //console.log(data.results)
+                data.results.forEach(element => {
+                    console.log(element.name)
+                });
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        obtenerPokemones()
+    </script>
+</body>
+</html>
