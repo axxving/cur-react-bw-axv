@@ -1,6 +1,6 @@
 * {
   margin: 0%;
-  padding: 0%;
+  padding: 20px;
   box-sizing: border-box;
   font-family: sans-serif;
 }
@@ -11,4 +11,8 @@
 
 .title {
   text-align: center;
+}
+
+.img {
+  width: 300px;
 }
