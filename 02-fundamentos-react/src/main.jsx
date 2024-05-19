@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+// importacion nombrada
 import { App } from './App'
 import './index.css'
 
