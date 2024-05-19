@@ -1,4 +1,10 @@
 
+export const MyButton = () => {
+    return (
+        <button>Soy un boton</button>
+    )
+}
+
 export const App = () => {
 
     const title = "Mi titulo desde una constante";
@@ -10,6 +16,7 @@ export const App = () => {
             <h2 className={classTitle}>{title.toUpperCase()}</h2>
             <p className="text-center">App component</p>
             <img className="img" src={pathImg} alt={`imagen - ${title}`} />
+            <MyButton />
         </>
     )
 }
