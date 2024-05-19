@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Objetos
+        const web = {
+            nombre: 'bluuweb',
+            links: {
+                enlace: 'www.bluuweb.cl'
+            },
+            redesSociales: {
+                youtube: {
+                    enlace: 'www.youtube.com/bluuweb',
+                    nombre: 'bluuweb yt'
+                },
+                facebook: {
+                    enlace: 'www.facebook.com/bluuweb',
+                    nombre: 'bluuweb fb'
+                }
+            }
+        }
+
+        //console.log(web.redesSociales.youtube.enlace)
+
+        const enlaceYT = web.redesSociales.youtube.enlace
+        console.log(enlaceYT)
+
+        const {enlace, nombre} = web.redesSociales.youtube
+        console.log(`Enlace: ${enlace},\nNombre: ${nombre}`)
+
+    </script>
+</body>
+</html>
