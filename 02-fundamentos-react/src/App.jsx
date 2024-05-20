@@ -1,5 +1,6 @@
 // Importaciones
 import img1 from './assets/imgs/1.webp';
+import { ButtonState } from './components/ButtonState';
 import { Map } from './components/Map';
 import { MyButton } from './components/MyButton';
 import { WelcomeText } from './components/WelcomeText';
@@ -17,6 +18,8 @@ export const App = () => {
 
     return (
         <div className="container">
+            <ButtonState />
+
             <h2 className={classTitle}>{title.toUpperCase()}</h2>
             <p className="text-center">App component</p>
             <img className="img" src={pathImg} alt={`imagen - ${title}`} />
