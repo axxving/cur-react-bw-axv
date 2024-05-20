@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useRef } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+
+  const form = useRef(null)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Me han dado clic');
+    console.log(form.current)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <form onSubmit={handleSubmit} ref={form} className='container mt-5'>
+      <input 
+        type="text" 
+        placeholder='Ingrese TODO'
+        className='form-control mb-2'
+        name='title'
+      />
+      <textarea 
+        className='form-control mb-2' 
+        placeholder='Ingrese descripción'
+        name='description'
+      />
+      <select className='form-select mb-2' name='state'>
+        <option value="pendiente">Pendiente</option>
+        <option value="completado">Completado</option>
+      </select>
+      <button onClick={handleSubmit} className='btn btn-success'>Procesar</button>
+    </form>
+  );
 }
-
-export default App
