@@ -24,6 +24,8 @@ export const App = () => {
     const pathImg = img1;
     const user = true;
 
+    const frutas = ['Manzana', 'Pera', 'Platano']
+
     return (
         <div className="container">
             <h2 className={classTitle}>{title.toUpperCase()}</h2>
@@ -34,6 +36,12 @@ export const App = () => {
             {
                 user ? <OnlineText /> : <OfflineText />
                 // user && <OfflineText />
+            }
+            {
+                frutas.map((fruta, id) => 
+                <ul key={id}>
+                    <li>{fruta} - {id}</li>
+                </ul> )
             }
         </div>
     )
