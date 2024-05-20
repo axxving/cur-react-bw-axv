@@ -1,48 +1,31 @@
-import img1 from './assets/imgs/1.webp'
+// Importaciones
+import img1 from './assets/imgs/1.webp';
+import { Map } from './components/Map';
+import { MyButton } from './components/MyButton';
+import { WelcomeText } from './components/WelcomeText';
 
-export const MyButton = () => {
-    return (
-        <button>Soy un boton</button>
-    )
-}
-
-export const OnlineText = () => {
-    return (
-        <h1>OnlineText</h1>
-    )
-}
-
-export const OfflineText = () => {
-    return (
-        <h1>OfflineText</h1>
-    )
-}
-
+// Componente App
 export const App = () => {
     const title = "Mi titulo desde una constante";
     const classTitle = "text-center";
     const pathImg = img1;
     const user = true;
 
-    const frutas = ['Manzana', 'Pera', 'Platano']
+    const Lista = ['Manzana', 'Pera', 'Platano'];
+
+    const Lista2 = ['Pera', 'Wayaba', 'Chicharrin'];
 
     return (
         <div className="container">
             <h2 className={classTitle}>{title.toUpperCase()}</h2>
             <p className="text-center">App component</p>
             <img className="img" src={pathImg} alt={`imagen - ${title}`} />
-            <MyButton />
+            <MyButton propiedad="Boton personalizado" />
             <br />
-            {
-                user ? <OnlineText /> : <OfflineText />
-                // user && <OfflineText />
-            }
-            {
-                frutas.map((fruta, id) => 
-                <ul key={id}>
-                    <li>{fruta} - {id}</li>
-                </ul> )
-            }
+            <WelcomeText user={user} />
+            
+            <Map Lista={Lista} />
+            <Map Lista={Lista2} />
         </div>
-    )
+    );
 }
