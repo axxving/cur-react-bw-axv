@@ -1,5 +1,5 @@
 
-export const Todo = ({todo}) => {
+export const Todo = ({todo, deleteTodo}) => {
 
     const {title, description, state, priority, id} = todo
 
@@ -10,7 +10,7 @@ export const Todo = ({todo}) => {
                     <h5 className={`${state && "text-decoration-line-through"}`}>{title}</h5>
                     <p className={`${state && "text-decoration-line-through"}`}>{description}</p>
                     <div className="d-flex gap-2">
-                        <button className="btn btn-danger btn-sm">
+                        <button onClick={() => deleteTodo(id)} className="btn btn-danger btn-sm">
                             Eliminar
                         </button>
                         <button className="btn btn-warning btn-sm">

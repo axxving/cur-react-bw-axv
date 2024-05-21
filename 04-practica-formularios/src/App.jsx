@@ -28,17 +28,22 @@ const initialStateTodos = [
 
 export const App = () => {
 
+  const [todos, setTodos] = useState(initialStateTodos)
+
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
   }
 
-  const [todos, setTodos] = useState(initialStateTodos)
+  const deleteTodo = (id) => {
+    const newArray = todos.filter(todo => todo.id !== id);
+    setTodos(newArray);
+  }
 
   return (
     <div className='container mt-2'>
       <h1>Formulario</h1>
       <Formulario addTodo={addTodo} />
-      <Todos todos={todos} />
+      <Todos todos={todos} deleteTodo={deleteTodo} />
     </div>
   );
 }
