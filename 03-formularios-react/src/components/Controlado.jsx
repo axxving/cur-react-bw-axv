@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 export const Controlado = () => {
 
@@ -9,19 +9,22 @@ export const Controlado = () => {
         priority: true,
     });
 
-    // const [title, setTitle] = useState('Tarea #1');
-    // const [description, setDescription] = useState('Descripcion de la tarea, ');
-    // const [state, setState] = useState('pendiente');
+    const { title, description, state, priority } = todo;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(todo.title, todo.description, todo.state)
     }
 
     const hanldeChange = (e) => {
+
+        const { name, type, checked, value } = e.target
+
         setTodo({
             ...todo,
-            [e.target.name]: e.target.value,
+            [name]:
+                type === 'checkbox'
+                    ? checked
+                    : value,
         })
     }
 
@@ -32,14 +35,14 @@ export const Controlado = () => {
                 placeholder='Ingrese TODO'
                 className='form-control mb-2'
                 name='title'
-                value={todo.title}
+                value={title}
                 onChange={hanldeChange}
             />
             <textarea
                 className='form-control mb-2'
                 placeholder='Ingrese descripción'
                 name='description'
-                value={todo.description}
+                value={description}
                 onChange={hanldeChange}
             />
             <div className='mt-3 mb-3'>
@@ -48,15 +51,15 @@ export const Controlado = () => {
                     name='priority'
                     className='form-check-input'
                     id='inputCheck'
-                    checked={todo.priority}
-                    onChange={e => setTodo({...todo, priority: e.target.checked})}
+                    checked={priority}
+                    onChange={hanldeChange}
                 />
                 <label htmlFor='inputCheck' className='ms-3'>Dar prioridad</label>
             </div>
             <select
                 className='form-select mb-2'
                 name='state'
-                value={todo.state}
+                value={state}
                 onChange={hanldeChange}
             >
                 <option value="pendiente">Pendiente</option>
