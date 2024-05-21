@@ -39,11 +39,21 @@ export const App = () => {
     setTodos(newArray);
   }
 
+  const updateTodo = (id) => {
+    const newArray = todos.map(todo => {
+      if(todo.id === id) {
+        todo.state = !todo.state;
+      }
+      return todo;
+    })
+    setTodos(newArray);
+  }
+
   return (
     <div className='container mt-2'>
       <h1>Formulario</h1>
       <Formulario addTodo={addTodo} />
-      <Todos todos={todos} deleteTodo={deleteTodo} />
+      <Todos todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </div>
   );
 }

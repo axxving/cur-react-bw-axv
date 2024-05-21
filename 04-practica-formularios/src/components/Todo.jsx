@@ -1,5 +1,5 @@
 
-export const Todo = ({todo, deleteTodo}) => {
+export const Todo = ({todo, deleteTodo, updateTodo}) => {
 
     const {title, description, state, priority, id} = todo
 
@@ -13,7 +13,7 @@ export const Todo = ({todo, deleteTodo}) => {
                         <button onClick={() => deleteTodo(id)} className="btn btn-danger btn-sm">
                             Eliminar
                         </button>
-                        <button className="btn btn-warning btn-sm">
+                        <button onClick={() => updateTodo(id)} className="btn btn-warning btn-sm">
                             Actualizar
                         </button>
                     </div>
