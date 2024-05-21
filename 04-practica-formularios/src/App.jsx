@@ -24,16 +24,20 @@ const initialStateTodos = [
     state: true,
     priority: true,
   },
-]
+];
 
 export const App = () => {
+
+  const addTodo = (todo) => {
+    setTodos([...todos, todo]);
+  }
 
   const [todos, setTodos] = useState(initialStateTodos)
 
   return (
     <div className='container mt-2'>
       <h1>Formulario</h1>
-      <Formulario />
+      <Formulario addTodo={addTodo} />
       <Todos todos={todos} />
     </div>
   );

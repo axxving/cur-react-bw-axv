@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
-export const Formulario = () => {
+export const Formulario = ({addTodo}) => {
 
     const [todo, setTodo] = useState({
         title: 'TODO #',
@@ -22,6 +22,20 @@ export const Formulario = () => {
                 text: 'No puedes dejar campos vacios',
             })
         }
+
+        addTodo({
+            id: Date.now(),
+            ...todo,
+            state: state === 'Completado'
+        })
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Todo agregado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 
     const hanldeChange = (e) => {
