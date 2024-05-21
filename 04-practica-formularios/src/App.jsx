@@ -49,11 +49,27 @@ export const App = () => {
     setTodos(newArray);
   }
 
+  // const orderTodo = (arrayTodos) => {
+  //   return arrayTodos.sort((a, b) => {
+  //     if(a.priority === b.priority) return 0
+  //     if(a.priority) return -1
+  //     if(!a.priority) return 1
+  //   })
+  // }
+
+  const orderTodo = (arrayTodos) => 
+    arrayTodos.sort((a, b) => b.priority - a.priority);
+  
+
   return (
     <div className='container mt-2'>
       <h1>Formulario</h1>
       <Formulario addTodo={addTodo} />
-      <Todos todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} />
+      <Todos 
+        todos={orderTodo(todos)}
+        deleteTodo={deleteTodo} 
+        updateTodo={updateTodo} 
+      />
     </div>
   );
 }
