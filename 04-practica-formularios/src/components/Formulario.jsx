@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Controlado = () => {
+export const Formulario = () => {
 
     const [todo, setTodo] = useState({
         title: 'TODO #',
@@ -29,7 +29,7 @@ export const Controlado = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='container mt-3'>
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder='Ingrese TODO'
@@ -74,5 +74,3 @@ export const Controlado = () => {
         </form>
     );
 }
-
-export default Controlado;
