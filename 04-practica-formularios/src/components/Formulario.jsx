@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export const Formulario = () => {
 
@@ -13,6 +14,14 @@ export const Formulario = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if(!title.trim() || !description.trim()){
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops',
+                text: 'No puedes dejar campos vacios',
+            })
+        }
     }
 
     const hanldeChange = (e) => {
@@ -69,7 +78,7 @@ export const Formulario = () => {
                 type="submit"
                 className='btn btn-success'
             >
-                Procesar
+                Agregar TODO
             </button>
         </form>
     );
