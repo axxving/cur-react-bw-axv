@@ -1,34 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formulario } from './components/Formulario';
 import { Todos } from './components/Todos';
 
-const initialStateTodos = [
-  {
-    id: 1,
-    title: 'Todo #01',
-    description: 'Descripcion 01',
-    state: true,
-    priority: true,
-  },
-  {
-    id: 2,
-    title: 'Todo #02',
-    description: 'Descripcion 02',
-    state: true,
-    priority: false,
-  },
-  {
-    id: 3,
-    title: 'Todo #02',
-    description: 'Descripcion 02',
-    state: true,
-    priority: true,
-  },
-];
+const initialStateTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
 export const App = () => {
 
   const [todos, setTodos] = useState(initialStateTodos)
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
@@ -60,7 +42,6 @@ export const App = () => {
   const orderTodo = (arrayTodos) => 
     arrayTodos.sort((a, b) => b.priority - a.priority);
   
-
   return (
     <div className='container mt-2'>
       <h1>Formulario</h1>
