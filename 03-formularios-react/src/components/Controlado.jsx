@@ -6,6 +6,7 @@ export const Controlado = () => {
         title: 'TODO #',
         description: 'Descripcion',
         state: 'Pendiente',
+        priority: true,
     });
 
     // const [title, setTitle] = useState('Tarea #1');
@@ -41,8 +42,19 @@ export const Controlado = () => {
                 value={todo.description}
                 onChange={hanldeChange}
             />
-            <select 
-                className='form-select mb-2' 
+            <div className='mt-3 mb-3'>
+                <input
+                    type='checkbox'
+                    name='priority'
+                    className='form-check-input'
+                    id='inputCheck'
+                    checked={todo.priority}
+                    onChange={e => setTodo({...todo, priority: e.target.checked})}
+                />
+                <label htmlFor='inputCheck' className='ms-3'>Dar prioridad</label>
+            </div>
+            <select
+                className='form-select mb-2'
                 name='state'
                 value={todo.state}
                 onChange={hanldeChange}
@@ -50,7 +62,7 @@ export const Controlado = () => {
                 <option value="pendiente">Pendiente</option>
                 <option value="completado">Completado</option>
             </select>
-            <button 
+            <button
                 type="submit"
                 className='btn btn-success'
             >
