@@ -1,16 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 export const App = () => {
 
   const form = useRef(null)
+  const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setError('')
+
+    // Capturar los datos
     const data = new FormData(form.current)
     const {title, description, state} = Object.fromEntries([
       ...data.entries(),
     ])
 
+    // Validar los datos
+    if (!title.trim() || !description.trim() || !state.trim()) return setError('Llena todos los campos');
+    
+    // Enviar los datos
     console.log(title, description, state)
   }
 
@@ -34,6 +42,9 @@ export const App = () => {
         <option value="completado">Completado</option>
       </select>
       <button onClick={handleSubmit} className='btn btn-success'>Procesar</button>
+      {
+        error !== '' && error
+      }
     </form>
   );
 }
