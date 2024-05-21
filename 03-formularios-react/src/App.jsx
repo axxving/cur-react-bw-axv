@@ -6,8 +6,12 @@ export const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Me han dado clic');
-    console.log(form.current)
+    const data = new FormData(form.current)
+    const {title, description, state} = Object.fromEntries([
+      ...data.entries(),
+    ])
+
+    console.log(title, description, state)
   }
 
   return (
@@ -17,13 +21,15 @@ export const App = () => {
         placeholder='Ingrese TODO'
         className='form-control mb-2'
         name='title'
+        defaultValue='todo 01'
       />
       <textarea 
         className='form-control mb-2' 
         placeholder='Ingrese descripción'
         name='description'
+        defaultValue='descripcion 01'
       />
-      <select className='form-select mb-2' name='state'>
+      <select className='form-select mb-2' name='state' defaultValue='completado'>
         <option value="pendiente">Pendiente</option>
         <option value="completado">Completado</option>
       </select>
