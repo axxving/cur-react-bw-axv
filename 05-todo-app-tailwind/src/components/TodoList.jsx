@@ -1,15 +1,12 @@
-import {TodoItem} from './TodoItem';
+// TodoList.js
+import { TodoItem } from "./TodoItem";
 
-export const TodoList = () => {
+export const TodoList = ({ listaTodos }) => {
     return (
-        <div className='mt-8 rounded-t-md bg-white [&>article]:p-4'>
-            <TodoItem />
-
-            <TodoItem />
-
-            <TodoItem />
-
-            <TodoItem />
+        <div className="mt-8 rounded-t-md bg-white [&>article]:p-4">
+            {listaTodos.map((todo) => (
+                <TodoItem key={todo.id} todo={todo} />
+            ))}
         </div>
-    )
-}
+    );
+};
