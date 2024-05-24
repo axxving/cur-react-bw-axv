@@ -41,12 +41,20 @@ export const App = () => {
     setListaTodos([...listaTodos, newTodo]);
   }
 
+  const removeTodo = (id) => {
+    setListaTodos(listaTodos.filter((todo) => todo.id !== id))
+  }
+
+  const updateTodo = (id) => {
+    setListaTodos(listaTodos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
+  }
+
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/imgs/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
       <Header />
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo}/>
-        <TodoList listaTodos={listaTodos} />
+        <TodoList listaTodos={listaTodos} removeTodo={removeTodo} updateTodo={updateTodo} />
         <TodoComputed />
         <TodoFilter />
       </main>
