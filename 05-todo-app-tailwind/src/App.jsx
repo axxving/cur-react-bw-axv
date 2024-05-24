@@ -49,13 +49,19 @@ export const App = () => {
     setListaTodos(listaTodos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo));
   }
 
+  const computedItemsLeft = listaTodos.filter((todo) => !todo.completed).length;
+
+  const clearCompleted = () => {
+    setListaTodos(listaTodos.filter((todo) => !todo.completed))
+  }
+
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/imgs/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
       <Header />
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo}/>
         <TodoList listaTodos={listaTodos} removeTodo={removeTodo} updateTodo={updateTodo} />
-        <TodoComputed />
+        <TodoComputed computedItemsLeft={computedItemsLeft} clearCompleted={clearCompleted} />
         <TodoFilter />
       </main>
       <footer className="mt-8 text-center">Drag and drop to reorder list</footer>
