@@ -7,10 +7,12 @@ export const Header = () => {
                 <h1 className='text-3x1 font-semibold uppercase tracking-[0.3em] text-white'>
                     Todo
                 </h1>
-                <button>
-                    <MoonIcon />
-                </button>
+                <buttonn>
+                    <MoonIcon on/>
+                </buttonn>
             </div>
         </header>
     )
 }
+
+
